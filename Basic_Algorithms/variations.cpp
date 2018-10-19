@@ -38,7 +38,6 @@ void generate_variations(int* set, int set_size, int k, int* result, bool* taken
 }
 
 int main() {
-    
 	int arr[] = { 1,2,3,4 };
 	int arr_size = sizeof(arr) / sizeof(arr[0]);
 	std::cout << "Variations: " << std::endl;
