@@ -3,7 +3,7 @@
 void generate_variations(int* set, int set_size, int k, int* result, bool* taken, int current_number);
 
 void variations(int* set, int set_size, int k) {
-	int* result = new int[k];						// Save the variation. And print it when we find it.
+	int* result = new int[k];					// Save the variation. And print it when we find it.
 	bool* taken = new bool[set_size];				// Array to check if number from the set is taken. 
 	int current_number = 0;							
 
