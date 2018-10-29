@@ -4,7 +4,7 @@
 #include <cassert>
 
 #ifndef DYNAMIC_ARRAY
-#define DYNAMI_ARRAY
+#define DYNAMIC_ARRAY
 
 template <typename T>
 class DynamicArray {
