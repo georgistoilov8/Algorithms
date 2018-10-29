@@ -64,9 +64,23 @@ public:
 		bool operator!=(const Iterator& rhs) { return ptr != rhs.ptr; }
 	};
 
-	
+	class RIterator {
+		T* ptr;
+	public:
+		RIterator(T* ptr_) :ptr(ptr_) {};
+		RIterator operator--() { RIterator it = *this; ptr--; return it; }
+		RIterator operator--(int) { ptr--; return ptr; }
+		T& operator*() { return *ptr; }
+		T* operator->() { return ptr; }
+		bool operator==(const RIterator& rhs) { return ptr == rhs.ptr; }
+		bool operator!=(const RIterator& rhs) { return ptr != rhs.ptr; }
+	};
+
 	Iterator begin() { return Iterator(data); }
-	Iterator end() { return Iterator(data+size); }
+	Iterator end() { return Iterator(data + size); }
+
+	RIterator rbegin() { return RIterator(data + size - 1); }
+	RIterator rend() { return RIterator(data - 1); }
 private:
 	void quicksort(T* arr, int size);
 	bool binary_search(T* arr, int size, const T& element);
