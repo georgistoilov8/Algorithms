@@ -1,10 +1,10 @@
 #pragma once
 
+#ifndef DYNAMIC_ARRAY
+#define DYNAMIC_ARRAY
+
 #include <iostream>
 #include <cassert>
-
-#ifndef DYNAMIC_ARRAY
-#define DYNAMI_ARRAY
 
 template <typename T>
 class DynamicArray {
@@ -52,7 +52,6 @@ public:
 	void print() const;
 
 	// Iterator:
-	template <typename T>
 	class Iterator {
 		T* ptr;
 	public:
