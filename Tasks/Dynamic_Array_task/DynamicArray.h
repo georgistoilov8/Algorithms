@@ -1,5 +1,6 @@
-#pragma once
-
+/*
+* Author: Georgi Stoilov
+*/
 #ifndef DYNAMIC_ARRAY
 #define DYNAMIC_ARRAY
 
