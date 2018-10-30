@@ -1,4 +1,6 @@
-#pragma once
+/*
+* Author: Georgi Stoilov
+*/
 
 #include <iostream>
 #include <cassert>
