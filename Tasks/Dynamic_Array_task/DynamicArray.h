@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef DYNAMIC_ARRAY
 #define DYNAMIC_ARRAY
 
@@ -64,6 +62,18 @@ public:
 		bool operator!=(const Iterator& rhs) { return ptr != rhs.ptr; }
 	};
 
+	class Const_Iterator {
+		T* ptr;
+	public:
+		Const_Iterator(T* ptr_) :ptr(ptr_) {};
+		Const_Iterator operator++() { Const_Iterator it = *this; ptr++; return it; }
+		Const_Iterator operator++(int) { ptr++; return ptr; }
+		const T& operator*() { return *ptr; }
+		const T* operator->() { return ptr; }
+		bool operator==(const Const_Iterator& rhs) { return ptr == rhs.ptr; }
+		bool operator!=(const Const_Iterator& rhs) { return ptr != rhs.ptr; }
+	};
+
 	class RIterator {
 		T* ptr;
 	public:
@@ -76,11 +86,29 @@ public:
 		bool operator!=(const RIterator& rhs) { return ptr != rhs.ptr; }
 	};
 
+	class Const_RIterator {
+		T* ptr;
+	public:
+		Const_RIterator(T* ptr_) :ptr(ptr_) {};
+		Const_RIterator operator--() { Const_RIterator it = *this; ptr--; return it; }
+		Const_RIterator operator--(int) { ptr--; return ptr; }
+		const T& operator*() { return *ptr; }
+		const T* operator->() { return ptr; }
+		bool operator==(const Const_RIterator& rhs) { return ptr == rhs.ptr; }
+		bool operator!=(const Const_RIterator& rhs) { return ptr != rhs.ptr; }
+	};
+
 	Iterator begin() { return Iterator(data); }
 	Iterator end() { return Iterator(data + size); }
 
+	Const_Iterator cbegin() const { return Const_Iterator(data); }
+	Const_Iterator cend() const { return Const_Iterator(data + size); }
+
 	RIterator rbegin() { return RIterator(data + size - 1); }
 	RIterator rend() { return RIterator(data - 1); }
+
+	Const_RIterator crbegin() const { return Const_RIterator(data + size - 1); }
+	Const_RIterator crend() const { return Const_RIterator(data - 1); }
 private:
 	void quicksort(T* arr, int size);
 	bool binary_search(T* arr, int size, const T& element);
