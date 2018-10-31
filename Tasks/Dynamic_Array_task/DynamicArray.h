@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+/*
+* Author: Georgi Stoilov
+*/
+>>>>>>> a6415bfa7952230819cd1f356b7c03192a55f2f5
 #ifndef DYNAMIC_ARRAY
 #define DYNAMIC_ARRAY
 
