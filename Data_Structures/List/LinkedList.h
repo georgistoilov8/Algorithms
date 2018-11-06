@@ -119,6 +119,7 @@ void List<T>::push_front(const T& element) {
 		this->front_node->ptr_previous = new_element;
 		this->front_node = new_element;
 	}
+	size++;
 }
 
 template <typename T>
