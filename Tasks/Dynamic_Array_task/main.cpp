@@ -2,7 +2,7 @@
 #include "DynamicArray.h"
 
 /*
-	Reverse dynami_array
+	Reverse dynamic_array
 */
 template <typename T>
 DynamicArray<T> reverse(DynamicArray<T>& arr) {
@@ -55,14 +55,9 @@ DynamicArray<T> set(DynamicArray<T>& arr) {
 
 int main() {
 	DynamicArray<int> arr;
-	arr.push_back(1);
-	arr.push_back(2);
-	arr.push_back(3);
-	arr.push_back(4);
-	arr.push_back(5);
-	arr.push_back(6);
-	arr.push_back(7);
-	arr.push_back(8);
+	for(int i = 1; i <= 10; i++){
+		arr.push_back(i*2);
+	}
 	arr.print();
 	DynamicArray<int> arr2 = reverse(arr);
 	arr2.print();
