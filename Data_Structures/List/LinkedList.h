@@ -25,7 +25,7 @@ class List {
 		~List();
 
 		// help functions:
-		//void append(const List& other);
+		void append(const List& other);
 		void clear();
 
 		void push_back(const T& element);
@@ -48,20 +48,31 @@ List<T>::List()
 
 template <typename T>
 List<T>::List(const List<T>& other) {
-	//append(other);
+	append(other);
 }
 
 template <typename T>
 List<T>& List<T>::operator=(const List<T>& rhs) {
 	if (this != &rhs) {
 		clear();
-		//append(rhs);
+		append(rhs);
 	}
 }
 
 template <typename T>
 List<T>::~List() {
 	clear();
+}
+
+template <typename T>
+void List<T>::append(const List<T>& other) {
+	size = 0;
+	int new_size = other.size;
+	Node<T>* current = other.front_node;
+	while (size < new_size) {
+		push_back(current->data);
+		current = current->ptr_next;
+	}
 }
 
 template <typename T>
