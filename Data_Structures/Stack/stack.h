@@ -46,8 +46,9 @@ template <typename T>
 Stack<T>& Stack<T>::operator=(const Stack<T>& rhs) {
 	if (this != &rhs) {
 		clear();
-		copy(other);
+		copy(rhs);
 	}
+	return *this;
 }
 
 template <typename T>
