@@ -3,8 +3,6 @@
 #ifndef QUEUE_LIST_HEADER
 #define QUEUE_LIST_HEADER
 
-#include <cassert>
-
 template <typename T>
 class Queue {
 	public:
@@ -73,7 +71,6 @@ void Queue<T>::push_back(const T& element) {
 
 template <typename T>
 T& Queue<T>::get_front() {
-	assert(empty());
 	return front->data;
 }
 template <typename T>
