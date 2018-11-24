@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef BINARY_TREE_HEADER
+#define BINARY_TREE_HEADER
+
 #include <iostream>
 
 template <typename T>
@@ -154,3 +157,5 @@ template <typename T>
 bool BinarySearchTree<T>::contain(const T& element) const {
 	return contain(root, element);
 }
+
+#endif // !BINARY_TREE_HEADER
