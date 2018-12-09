@@ -28,6 +28,9 @@ bool addUpNumber(int* arr, int arr_length, int number) {
 	return false;
 }
 
+/*
+	Version 2
+*/
 bool addUpNumber2(int* arr, int arr_length, int number) {
 	std::unordered_set<int> set;
 	for (int i = 0; i < arr_length; i++) {
