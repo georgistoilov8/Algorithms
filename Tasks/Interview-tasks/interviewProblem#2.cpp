@@ -30,6 +30,27 @@ int* productOfElements(int* arr, int array_length) {
 	return result;
 }
 
+/*
+	Second way:
+*/
+int* productOfElements2(int* arr, int array_length) {
+	int* result = new int[array_length];
+	for (int i = 0; i < array_length; i++) {
+		result[i] = 1;
+		for (int j = 0; j < array_length; j++) {
+			if (i != j) {
+				result[i] *= arr[j];
+			}
+		}
+	}
+	return result;
+}
+
+void print(int* arr, int array_length) {
+	for (int i = 0; i < array_length; i++) {
+		std::cout << arr[i] << ' ';
+	}
+}
 int main() {
 	int length;
 	std::cout << "Number of elements in the array: ";
@@ -40,11 +61,15 @@ int main() {
 	}
 
 	int* result = productOfElements(numbers, length);
-	for (int i = 0; i < length; i++) {
-		std::cout << result[i] << ' ';
-	}
+	int* result2 = productOfElements2(numbers, length);
+
+	print(result, length);
+	std::cout << std::endl;
+	print(result2, length);
+
 	delete[] numbers;
 	delete[] result;
+	delete[] result2;
 
 	return 0;
 }
