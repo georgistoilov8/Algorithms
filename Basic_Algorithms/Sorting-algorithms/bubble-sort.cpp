@@ -4,7 +4,6 @@
 
 #include <iostream>
 
-/* Възходящ ред */
 template <typename T>
 void buble_sort(T* arr, unsigned arr_size) {
 	bool is_sorted = false;
@@ -33,6 +32,5 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		std::cout << arr[i] << ' ';
 	}
-	system("pause");
 	return 0;
 }
