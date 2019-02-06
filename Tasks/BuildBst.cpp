@@ -43,6 +43,17 @@ void clean(Node* node) {
 	delete node;
 }
 
+Node* findCommonAncestor(Node* node, int left, int right) {
+	if (node->data > left && node->data > right) {
+		return findCommonAncestor(node->left_child, left, right);
+	}
+
+	if (node->data < left && node->data < right) {
+		return findCommonAncestor(node->right_child, left, right);
+	}
+	return node;
+}
+
 int main() {
 	std::vector<int> arr;
 	arr.push_back(2);
@@ -54,7 +65,14 @@ int main() {
 
 
 	Node* root = BuildBst(arr);
+	std::cout << "Binary-search tree printed in: Left-Head-Right way.\n";
 	printBst(root);
+
+	int A = 2;
+	int B = 6;
+	Node* common = findCommonAncestor(root, A, B);
+	std::cout << "Common ancestor of " << A << " and " << B << " is: " << common->data << std::endl;
+
 	clean(root);
 	return 0;
 }
