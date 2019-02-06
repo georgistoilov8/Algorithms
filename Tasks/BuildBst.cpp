@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 
 struct Node {
 	int data;
@@ -34,6 +35,15 @@ void printBst(Node* node) {
 	printBst(node->right_child);
 }
 
+void printBstHead(Node* node) {
+	if (!node) {
+		return;
+	}
+	std::cout << node->data << std::endl;
+	printBstHead(node->left_child);
+	printBstHead(node->right_child);
+}
+
 void clean(Node* node) {
 	if (!node) {
 		return;
@@ -52,6 +62,35 @@ Node* findCommonAncestor(Node* node, int left, int right) {
 		return findCommonAncestor(node->right_child, left, right);
 	}
 	return node;
+}
+
+Node* findPreviousByLevel(Node* root, int key) {
+	if (root->data == key) {
+		return nullptr;
+	}
+	std::queue<Node*> queue;
+	queue.push(root);
+	while (!queue.empty()) {
+		Node* node = queue.front();
+		if (node->left_child) {
+			if (node->left_child->data == key) {
+				return queue.back();
+			}
+			else {
+				queue.push(node->left_child);
+			}
+		}
+		if (node->right_child) {
+			if (node->right_child->data == key) {
+				return queue.back();
+			}
+			else {
+				queue.push(node->right_child);
+			}
+		}
+		queue.pop();
+	}
+	return nullptr;
 }
 
 int main() {
@@ -74,5 +113,25 @@ int main() {
 	std::cout << "Common ancestor of " << A << " and " << B << " is: " << common->data << std::endl;
 
 	clean(root);
+
+	std::vector<int> arr2;
+	arr2.push_back(2);
+	arr2.push_back(4);
+	arr2.push_back(5);
+	arr2.push_back(6);
+	arr2.push_back(8);
+	arr2.push_back(11);
+
+	root = BuildBst(arr2);
+	Node* previous = findPreviousByLevel(root, 4);
+	std::cout << "Previous element by level is: ";
+	//std::cout << previous->data << std::endl;
+	(previous) ? std::cout << previous->data : std::cout << "nullptr";
+	std::cout << std::endl;
+	printBstHead(root);
+
+
+	clean(root);
+
 	return 0;
 }
