@@ -48,7 +48,7 @@ int main() {
 	int arr_size = sizeof(arr) / sizeof(arr[0]);
 	int *result = new int[arr_size];
 	mergesort(arr, arr_size, result);
-	print(result, arr_size);
 	delete[] result;
+	print(arr, arr_size);
 	return 0;
 }
