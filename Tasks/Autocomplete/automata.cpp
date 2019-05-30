@@ -135,9 +135,6 @@ int Automata::compareStates(Node* state1, Node* state2) {
 	in the words and m is the number of states.
 	Space complexity: O(m), where m is the number of states.
 
-	За жалост, при мен мисля, че сложността е О(n*m) и затова е доста
-	бавно... :'(
-
 	@param words - Array of words
 */
 void Automata::construct(std::vector<std::string>& words) {
@@ -243,8 +240,6 @@ Automata::Node* Automata::findMinimizedState(Node* state) {
 	@param state - The state we want to check
 	@return - The state in the minimal automata if it's in there
 	or nullptr.
-
-	Тук се крие разковничето за бавното зареждане на думите...
 */
 Automata::Node* Automata::isMember(Node* state) {
 	int size = minimal_states.size();
@@ -377,7 +372,7 @@ bool Automata::search(const std::string& str) {
 }
 
 /*  Just information:
-	Before this algorithm, I tried to realize the Hopcroft algorithm.
+	Before this algorithm, I tried to implement the Hopcroft algorithm.
 	It was almost done and you can find it if you want in the last of
 	the commented functions - minimize. It just miss some edge cases.
 	When I tested it, it didn't go in this edge cases. What I found out
@@ -564,7 +559,7 @@ bool Automata::search(const std::string& str) {
 		equivalent_classes_count = 2;
 		P[1].push_back(reject_state);
 		fillStates(P, W, start_state);
-		//Предполагаме, че сме на ниво: Имаме P и W
+		//ГЏГ°ГҐГ¤ГЇГ®Г«Г ГЈГ Г¬ГҐ, Г·ГҐ Г±Г¬ГҐ Г­Г  Г­ГЁГўГ®: Г€Г¬Г Г¬ГҐ P ГЁ W
 		//findEquivalenceClasses(states);
 		//clear(start_state);
 		bool shouldUpdateClasses = false;
@@ -583,7 +578,6 @@ bool Automata::search(const std::string& str) {
 						}
 					}
 				}
-				// Намерили сме Х.
 				//std::cout << X.size() << std::endl;
 				//std::cout << "-----\n";
 
